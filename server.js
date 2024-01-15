@@ -6,6 +6,7 @@ const fccTesting = require('./freeCodeCamp/fcctesting.js');
 
 const app = express();
 
+// pug setup
 app.set('view engine', 'pug');
 app.set('views','./views/pug');
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.route('/').get((req, res) => {
-  res.render("index");
+  res.render("index", {title:'hello',message:'Please log in'});
 });
 
 const PORT = process.env.PORT || 3000;
